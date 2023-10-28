@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {Routes,Route} from 'react-router'
+import LandingPage from './routes/landing page/LandingPage';
+import io from 'socket.io-client';
+import SearchPage from './routes/Game Search/SearchPage';
+import Error404 from './routes/Error 404/Error404';
+import Game from './routes/Game/Game';
+import { useState } from 'react';
+
+
+const socket = io.connect('http://localhost:3001')
 
 function App() {
+  const [finding,setFinding] = useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route element={<LandingPage socket={socket} setFinding={setFinding}/>} path='/' />
+        {finding && (<Route element={<SearchPage socket={socket} setFinding={setFinding}/>} path='/finding'/>)}
+        <Route element={<Error404/>}  path='/*'/>
+        <Route element={<Game socket={socket}/>} path='/game/:roomID'/>
+      </Routes>
     </div>
   );
 }

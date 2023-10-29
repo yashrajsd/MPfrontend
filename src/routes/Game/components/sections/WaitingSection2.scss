@@ -1,0 +1,16 @@
+.animationRing {
+    animation: ring 4s linear infinite; /* Use the ring animation with a 4-second duration */
+  }
+  
+  @keyframes ring {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  

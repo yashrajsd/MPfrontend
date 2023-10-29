@@ -95,7 +95,7 @@ const Section1 = ({socket,setFinding}) => {
         </div> */}
         
     </div>
-        <div className='sec1gradient mt-[5rem]'>
+        <div className='sec1gradient mt-[5rem] '>
         <VideoPlayer video={videobg} innerShadow={true}/>
           <img src={sec1img} alt="" className='rounded-t-[3.5vw] w-[68.958vw] h-[27.135vw]' />
         </div>

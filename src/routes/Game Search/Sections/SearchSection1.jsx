@@ -1,8 +1,10 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Exit from '../../../utils/exit.png'
+import { useSelector } from 'react-redux'
 
 const SearchSection1 = ({socket}) => {
+  const { user } = useSelector((state) => state.auth)
 
   const navigate = useNavigate()
   
@@ -14,7 +16,7 @@ const SearchSection1 = ({socket}) => {
         </button>
       </span>
       <span>
-        <span>Yashraj</span>
+        <span>{user?.username}</span>
       </span>
     </div>
   )

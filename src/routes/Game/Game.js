@@ -18,7 +18,7 @@ const Game = ({socket}) => {
           setRoom(data.room);
         });
     }, [start]);
-  
+
     useEffect(()=>{
       socket.on('startGame',()=>{
         console.log('Game Started')
@@ -28,14 +28,14 @@ const Game = ({socket}) => {
         socket.off('startGame')
       }
     },[socket])
-  
+
     if(room){
       console.log(room.waiting)
     }
     return (
       <div>
         {/* <h1 className='text-white'>{room && room.name}</h1> */}
-        {room && (room.waiting ? <GameWaiting socket={socket} room={room}/> : <MainGame socket={socket} />)}
+        {room && (room.waiting ? <GameWaiting socket={socket} room={room}/> : <MainGame roomID={roomID} socket={socket} />)}
       </div>
     );
 }

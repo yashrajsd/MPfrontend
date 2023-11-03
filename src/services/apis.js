@@ -13,3 +13,7 @@ export const endpoints = {
 export const rank = {
   TOP5RANK_API: BASE_URL + "/rank/top5rank",
 }
+// GAME ENDPOINTS
+export const game = {
+  CREATERIDDLE_API: BASE_URL + "/game/createRiddle",
+}

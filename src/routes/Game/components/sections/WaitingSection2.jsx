@@ -18,11 +18,24 @@ const WaitingSection2 = ({ socket }) => {
     }
   };
 
+  const users=[{
+    username:"Yashraj",
+    pic:"https://i.pinimg.com/originals/e9/16/3b/e9163bf1bc7c2ae82b3676bcaa5b675c.jpg"
+  }]
+
   return (
     <div className='flex justify-center items-center h-[90vh] relative'>
       <div className='animationRing w-[50vh] h-[50vh] rounded-full border-solid border-[#1A1A1A] border-[40px]'></div>
-      <div className='absolute'>
+      <div className='absolute flex flex-col gap-[3rem]'>
         <div>
+          {users.map((user)=>{
+            return(
+              <div className='flex flex-col justify-center items-center text-white'>
+                <img src={user.pic} className='rounded-full w-[10rem] h-[10rem]'/>
+                {user.username}
+              </div>
+            )
+          })}
         </div>
         <div>
           <button

@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import OpenRoute from './components/Auth/OpenRoute'
 import PrivateRoute from './components/Auth/PrivateRoute'
+import Announcement from './routes/Game/components/Announcement';
 
 const socket = io.connect('http://localhost:3001')
 
@@ -60,6 +61,7 @@ function App() {
           }
         />
         <Route element={<Error404 />} path='/*' />
+        <Route element={<Announcement socket={socket} />} path='/game/:roomID/round' />
 
       </Routes>
     </div>
